@@ -1,6 +1,9 @@
-#include <SDL3/SDL.h>
-#include <SDL3/SDL_main.h>
+#ifndef INCLUDES_H
+#define INCLUDES_H
+#include <SDL2/SDL.h>
+#include <cstdint>
 #include <cstdio>
 #include <string>
 #include <iostream>
 #include <vector>
+#endif
