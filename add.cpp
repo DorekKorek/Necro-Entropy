@@ -1,17 +1,15 @@
-#include "includes.h"
+    #include "add.h"
 
-class SDL
-{
-    public:
-    
-    SDL()
+    SDL::SDL()
     {
-    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
     SDL_CreateWindowAndRenderer(width * scale, height * scale, 0, &window, &renderer);
     SDL_RenderSetScale(renderer, scale, scale);
+    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
+    SDL::sound = Mix_LoadWAV("sound.mp3");
     }
 
-    void Quit()
+    void SDL::Quit()
     {
         running = false;
         SDL_DestroyWindow(window);
@@ -20,10 +18,10 @@ class SDL
         
     }
 
-    void ifEvent()
+    void SDL::ifEvent()
     {
         SDL_Event event;
-        if (SDL_PollEvent(&event))
+        while (SDL_PollEvent(&event))
         {
             if (event.type == SDL_QUIT)
             {
@@ -33,59 +31,59 @@ class SDL
         
     }
     
-    void helloRender()
+    void SDL::renderHello()
     {
-        //int delayTime = 5000;
+        int delayTime = 1000;
         int middleX = width/2;
         int middleY = height/2;
-        renderBackground();
-        // LETTER "H"
-        renderDotLineY(middleX -25, middleY+ 5, 14);
-        renderDotLineX(middleX -24, middleY- 2, 7);
-        renderDotLineY(middleX -17, middleY+ 5, 14);
-        // LETTER "E"
-        renderDotLineY(middleX -13, middleY+ 5, 14);
-        renderDotLineX(middleX -13, middleY-9, 5);
-        renderDotLineX(middleX -13, middleY-10 + 8, 5);
-        renderDotLineX(middleX -13, middleY-10 + 15, 5);
-        // LETTER "L"
-        renderDotLineY(middleX -4, middleY+ 5, 14);
-        renderDotLineX(middleX -4, middleY-10 + 15, 5);
-        // LETTER "L"
-        renderDotLineY(middleX +5, middleY+ 5, 14);
-        renderDotLineX(middleX +5, middleY-10 + 15, 5);
-        // LETTER "O"
-        renderDotLineY(middleX +14, middleY+ 5, 14);
-        renderDotLineY(middleX +22, middleY+ 5, 14);
-        renderDotLineX(middleX +14, middleY-10 + 15, 7);
-        renderDotLineX(middleX +14, middleY-9, 7);
         
+        for(int i{}; i <15 *3; i = i + 3)
+        {
+            renderBackground();
+            // LETTER "H"
+            renderLineY(middleX -25, middleY+ 5+i, 14);
+            renderLineX(middleX -24, middleY- 2+i, 7);
+            renderLineY(middleX -17, middleY+ 5+i, 14);
+            // LETTER "E"
+            renderLineY(middleX -13, middleY+ 5+i, 14);
+            renderLineX(middleX -13, middleY-9+i, 5);
+            renderLineX(middleX -13, middleY-2+i, 5);
+            renderLineX(middleX -13, middleY+5+i, 5);
+            // LETTER "L"
+            renderLineY(middleX -4, middleY+ 5+i, 14);
+            renderLineX(middleX -4, middleY+5+i, 5);
+            // LETTER "L"
+            renderLineY(middleX +5, middleY+ 5+i, 14);
+            renderLineX(middleX +5, middleY+5+i, 5);
+            // LETTER "O"
+            renderLineY(middleX +14, middleY+ 5+i, 14);
+            renderLineY(middleX +22, middleY+ 5+i, 14);
+            renderLineX(middleX +14, middleY+5+i, 7);
+            renderLineX(middleX +14, middleY-9+i, 7);
+            SDL_RenderPresent(renderer);
+            Mix_PlayChannel(-1, sound, 0);
+            SDL_Delay(delayTime);
+
+        }
     }
 
-    SDL_Window* window = nullptr;
-    SDL_Renderer* renderer = nullptr;
     
-    const int width{72};
-    const int height{64};
-    const int scale{14};
-    bool running{true};
     
-    private:
-    
-    void renderBackground()
+    void SDL::renderBackground()
     {
         SDL_SetRenderDrawColor(renderer, 0,0,0, 255);
         SDL_RenderClear(renderer);
     }
     
-    void renderDot(int x, int y)
+    void SDL::renderDot(int x, int y)
     {
         SDL_SetRenderDrawColor(renderer, 255,255,255,255);
         SDL_RenderDrawPoint(renderer, x, y);
     }
 
-    void renderDotLine(int x, int y, int length, char cordinates)
+    void SDL::renderLine(int x, int y, int length, char cordinates)
     {
+        ifEvent();
         if(cordinates == 'X' || cordinates == 'x')
         {
             for(int i{0}; i <= length; i++)
@@ -103,13 +101,6 @@ class SDL
                 }
         }
     }
-    void renderDotLineX(int x, int y, int length){renderDotLine(x, y, length, 'x');}
-    void renderDotLineY(int x, int y, int length){renderDotLine(x, y, length, 'y');}
+    void SDL::renderLineX(int x, int y, int length){renderLine(x, y, length, 'x');}
+    void SDL::renderLineY(int x, int y, int length){renderLine(x, y, length, 'y');}
     
-    void delayAndRender(int delayTime)
-    {
-        SDL_Delay(delayTime);
-        SDL_RenderPresent(renderer); 
-    }  
-
-};

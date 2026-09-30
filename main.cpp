@@ -1,18 +1,14 @@
 #include "includes.h"
-#include "add.cpp"
+#include "add.h"
 
 int main()
 {
     SDL SDL{};
-    
-
-
     while (SDL.running)
     {
         SDL.ifEvent();
-        SDL.helloRender();
-        SDL_Delay(5000);    
-       // SDL.helloRender();    
+        SDL.renderHello();
+        SDL.Quit();
     }
     return 0;
 }
