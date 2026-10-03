@@ -49,38 +49,37 @@
             {  
                 if (event.key.repeat == 0 && SDL::player.posX)
                 {
-                    switch(event.key.keysym.sym)
-                    {
-                        case SDLK_RIGHT: 
+                        const Uint8* state = SDL_GetKeyboardState(nullptr);
+
+                        if(state[SDL_SCANCODE_RIGHT]) 
                         {
                             //std::cerr << "key RIGHT pressed" << std::endl;
                             if(SDL::player.posX < width -2){SDL::player.posX ++;}
-                            break;
+                            
                         }
-                        case SDLK_LEFT: 
+                        if(state[SDL_SCANCODE_LEFT]) 
                         {
                             //std::cerr << "key LEFT pressed" << std::endl;
                             if(SDL::player.posX > 2){SDL::player.posX --;}
-                            break;
+                         
                         }
-                        case SDLK_UP: 
+                        if(state[SDL_SCANCODE_UP]) 
                         {
                             //std::cerr << "key UP pressed" << std::endl;
                             if(SDL::player.posY > 2)SDL::player.posY -- ;
-                            break;
+                         
                         }
-                        case SDLK_DOWN: 
+                        if(state[SDL_SCANCODE_DOWN]) 
                         {
                             //std::cerr << "key DOWN pressed" << std::endl;
                             if(SDL::player.posY < height -2)SDL::player.posY ++ ;
-                            break;
+                         
                         }
                     }
                 }
             }
         }
-        
-    }
+    
        
     void SDL::renderBackground()
     {

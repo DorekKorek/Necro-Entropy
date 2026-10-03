@@ -7,7 +7,7 @@ int main()
 
     SDL_Delay(800);
     SDL.renderHello();
-
+    Mix_PlayChannel(-1, SDL.sound, 0);
     while (SDL.running)
     {
         SDL.renderBackground();
