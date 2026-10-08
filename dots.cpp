@@ -110,13 +110,7 @@ void SDL::renderHello()
             Mix_PlayChannel(-1, sound, 0);
     }
     
-    void SDL::renderPlayer(int x, int y)
-    {
-        //SDL::renderBackground();
-        SDL_SetRenderDrawColor(renderer, 98,4,255,1);
-        SDL_RenderDrawPoint(renderer, x, y);
-    }
-
+    
     void SDL::renderLine(int x, int y, int length, char cordinates)
     {
         ifEvent();
