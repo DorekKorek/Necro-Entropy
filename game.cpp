@@ -28,6 +28,20 @@ void SDL::gameLoop()
             }
         }
 
+       for(int indexX{}; indexX < width ; indexX++)
+        {
+            for(int indexY{}; indexY < height; indexY++)
+            {
+                {
+                grid[indexX][indexY] = nextGrid[indexX][indexY];
+                }
+
+            }
+
+        }
+
+
+
     }
 
 
@@ -64,26 +78,25 @@ void SDL::renderPlayer(int x, int y)
 void SDL::rulesOfLife(int x, int y)
     {
     // (x = neighbors)
-
     // x < 2 dead
     // x == 2 || x == 3 lives
     // x == 3 begins living
     // x > 3 dead
 
     int neighbors {countNeighbors(x, y)};
-        
-        if(neighbors < 2 || neighbors > 3)
         {
-            grid[x][y] = off;
-            return;
+            if(neighbors < 2 || neighbors > 3)
+            {
+                nextGrid[x][y] = off;
+                return;
+            }
+            else if((neighbors == 3) || (neighbors == 2 && grid[x][y] == on))
+            {
+                SDL_SetRenderDrawColor(renderer, 255,255,255,255);
+                nextGrid[x][y] = on;
+            }
         }
-        else if((neighbors == 3) || (neighbors == 2 && grid[x][y] == on))
-        {
-            SDL_SetRenderDrawColor(renderer, 98,4,255,1);
-            SDL_RenderDrawPoint(renderer, x, y);
-            grid[x][y] = on;
-        }
-
+        SDL_RenderDrawPoint(renderer, x, y);
     }
 
 

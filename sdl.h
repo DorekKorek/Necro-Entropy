@@ -53,10 +53,9 @@
             playerOn = 0
         };
         
-        public:
-        
-        
+        public:      
         int grid[width][height]{};
+        int nextGrid[width][height]{};
         void renderPlayer(int x, int y);
         void rulesOfLife(int x, int y);
         int countNeighbors(int x, int y);
