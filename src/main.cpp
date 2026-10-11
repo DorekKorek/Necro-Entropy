@@ -1,23 +1,26 @@
-#include "includes.h"
-#include "sdl.h"
+#include "headers/includes.h"
+#include "headers/sdl.h"
 
 int main()
 {
 
     //SDL INITALIZATION
     SDL SDL{};
-    SDL_Delay(200);
+    SDL_Delay(500);
 
     //SDL.renderHello();
     Mix_PlayChannel(-1, SDL.sound, 0);
 
-    SDL.renderBackground();
-    for(int i{}; i < 40; i ++)
-    {
-    SDL.drawLife(SDL.middleX-20 +i, SDL.middleY);
-    }
-    SDL_RenderPresent(SDL.renderer);
-    SDL_Delay(1000);
+    SDL.drawLife(30, 30);
+    SDL.drawLife(30, 31);
+    SDL.drawLife(31, 31);
+    SDL.drawLife(31, 31);
+
+    SDL.drawLife(50, 60);
+    SDL.drawLife(51, 60);
+    SDL.drawLife(50, 61);
+    SDL.drawLife(51, 61);
+    
 
     long long framecount{};
 
@@ -27,7 +30,7 @@ int main()
         SDL.ifEvent();
         SDL.renderPlayer(SDL.player.posX, SDL.player.posY);
 
-        if(framecount % 20 == 0)
+        if(framecount % 120 == 0)
         {
             SDL.ruleLife();
         }

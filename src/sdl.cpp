@@ -1,4 +1,4 @@
-    #include "sdl.h"
+#include "headers/sdl.h"
 
     SDL::SDL()
     {
@@ -6,7 +6,8 @@
     SDL_CreateWindowAndRenderer(width * scale, height * scale, 0, &window, &renderer);
     SDL_RenderSetScale(renderer, scale, scale);
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
-    SDL::sound = Mix_LoadWAV("sound.mp3");
+    SDL::sound = Mix_LoadWAV("sounds/beton.mp3");
+    SDL::deathSound = Mix_LoadWAV("sounds/death.mp3");
     }
 
     void SDL::Quit()
@@ -17,6 +18,11 @@
         {
             Mix_FreeChunk(sound);
             sound = nullptr;
+        }
+        if(deathSound != nullptr)
+        {
+            Mix_FreeChunk(deathSound);
+            deathSound = nullptr;
         }
         Mix_CloseAudio();
         Mix_Quit();

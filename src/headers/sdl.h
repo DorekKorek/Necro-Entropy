@@ -1,25 +1,14 @@
 #pragma once
 #include "includes.h"
+#include "player.h"
 
-
-    class Player
-    {
-        public:
-
-        int posX{};
-        int posY{};
-
-        Player();
-
-    };
     
     class SDL
     {
+        public:
         static constexpr int width{72};
         static constexpr int height{64};
         
-        public:
-        Player player;
         
         //SDL.cpp
              SDL();
@@ -30,10 +19,13 @@
         SDL_Window* window = nullptr;
         SDL_Renderer* renderer = nullptr;
         Mix_Chunk* sound = nullptr;
+        Mix_Chunk* deathSound = nullptr;
         bool running{true};
         static constexpr int middleX {width/2};
         static constexpr int middleY {height/2};
         
+        Player player{middleX, middleY - 20};
+
         const int scale{14};
         
         //dots.cpp
@@ -42,25 +34,25 @@
         void renderLineX(int x, int y, int length);
         void renderLineY(int x, int y, int length);
         void renderHello();
+        void renderDeath();
         void letter(char letter);
         //game.cpp
         enum isOn
         {
-            off = 0,
-            on = 1,
+            onLife = 1,
+            offLife = 0,
             onPlayer = 2
         };   
         
-        int grid[width*2][height*2]{};
-        int nextGrid[width*2][height*2]{};
+        int grid[width*4][height*4]{};
+        int nextGrid[width*4][height*4]{};
         int countNeighbors(int x, int y);
         void drawLife(int x, int y);
         
         void rulesOfLife(int x, int y);
         void ruleLife();
-        void renderLife();
+        void renderLife(int skipGridSet =0);
+        void isDead();
 
         void renderPlayer(int x, int y);
     };
-                                                                                                                                                                        
-    inline Player::Player() : posX {SDL::middleX}, posY {SDL::middleY -20} {};   

@@ -1,7 +1,7 @@
-/*Conway's Game of Life is a zero-player cellular automaton where the evolution of a grid of cells is determined by four simple rules applied simultaneously to every cell based on its eight neighbors:
+/*Conway's Game of Life is a zero-player cellular automaton where the evolution of a grid of cells is determined by four simple rules applied simultaneously to every cell based onLife its eight neighbors:
 
 Underpopulation: Any live cell with fewer than two live neighbors dies. 
-Survival: Any live cell with two or three live neighbors lives on to the next generation. 
+Survival: Any live cell with two or three live neighbors lives onLife to the next generation. 
 Overpopulation: Any live cell with more than three live neighbors dies. 
 Reproduction: Any dead cell with exactly three live neighbors becomes a live cell. 
 These rules are collectively known as B3/S23, meaning a dead cell is born with 3 neighbors and a live cell survives with 2 or 3 neighbors. */
@@ -12,8 +12,7 @@ These rules are collectively known as B3/S23, meaning a dead cell is born with 3
 // x == 3 begins living
 // x > 3 dead
 
-
-#include "sdl.h"
+#include "headers/sdl.h"
 
 
 
@@ -30,19 +29,21 @@ void SDL::ruleLife()
         
     }
     
-    void SDL::renderLife()
+    void SDL::renderLife(int skipGridSet)
     {
 
-
-        for(int indexX{}; indexX < width ; indexX++)
+        if (skipGridSet == 0)
         {
-            for(int indexY{}; indexY < height; indexY++)
+            for(int indexX{}; indexX < width ; indexX++)
             {
-                if((nextGrid[indexX][indexY] == onPlayer) && grid[indexX][indexY] == on)
+                for(int indexY{}; indexY < height; indexY++)
                 {
-                    std::exit(0); 
+                    if((nextGrid[indexX][indexY] == onPlayer) && grid[indexX][indexY] == onLife)
+                    {
+                        renderDeath();
+                    }
+                    grid[indexX][indexY] = nextGrid[indexX][indexY];   
                 }
-                grid[indexX][indexY] = nextGrid[indexX][indexY];   
             }
         }
         
@@ -51,8 +52,8 @@ void SDL::ruleLife()
             for(int indexY{}; indexY < height; indexY++)
             {
                 
-                // if off dont render anything
-                if(grid[indexX][indexY] == on)
+                // if offLife dont render anything
+                if(grid[indexX][indexY] == onLife)
                 {
                     SDL_SetRenderDrawColor(renderer, 255,255,255,255);
                     SDL_RenderDrawPoint(renderer, indexX, indexY);
@@ -73,12 +74,12 @@ void SDL::ruleLife()
             
                 if(neighbors < 2 || neighbors > 3)
                 {
-                    nextGrid[x][y] = off;
+                    nextGrid[x][y] = offLife;
                     return;
                 }
-                else if((neighbors == 3) || (neighbors == 2 && grid[x][y] == on))
+                else if((neighbors == 3) || (neighbors == 2 && grid[x][y] == onLife))
                 {
-                    nextGrid[x][y] = on;
+                    nextGrid[x][y] = onLife;
                 }
             
         }
@@ -88,32 +89,33 @@ void SDL::ruleLife()
         int SDL::countNeighbors(int x, int y)
             {   
                     int neighbors{};
-                    neighbors += grid[x + 1][y] == 1 ? 1 : 0;
-                    neighbors += grid[x - 1][y] == 1 ? 1 : 0;
-                    neighbors += grid[x][y + 1] == 1 ? 1 : 0;
-                    neighbors += grid[x][y - 1] == 1 ? 1 : 0;
-                    neighbors += grid[x - 1][y - 1] == 1 ? 1 : 0;
-                    neighbors += grid[x - 1][y + 1] == 1 ? 1 : 0;
-                    neighbors += grid[x + 1][y - 1] == 1 ? 1 : 0;
-                    neighbors += grid[x + 1][y + 1] == 1 ? 1 : 0;
+                    neighbors += grid[x + 1][y] == onLife ? onLife : offLife;
+                    neighbors += grid[x - 1][y] == onLife ? onLife : offLife;
+                    neighbors += grid[x][y + 1] == onLife ? onLife : offLife;
+                    neighbors += grid[x][y - 1] == onLife ? onLife : offLife;
+                    neighbors += grid[x - 1][y - 1] == onLife ? onLife : offLife;
+                    neighbors += grid[x - 1][y + 1] == onLife ? onLife : offLife;
+                    neighbors += grid[x + 1][y - 1] == onLife ? onLife : offLife;
+                    neighbors += grid[x + 1][y + 1] == onLife ? onLife : offLife;
                     return neighbors;
             }
-
-        void SDL::drawLife(int x, int y)
+            
+    
+                
+    void SDL::drawLife(int x, int y)
             {
                 SDL_SetRenderDrawColor(renderer, 255,255,255,255);
                 SDL_RenderDrawPoint(renderer, x, y);
-                grid[x][y] = on;
+                grid[x][y] = onLife;
         
-            }    
-        
-        void SDL::renderPlayer(int x, int y)
+            }  
+
+    void SDL::renderPlayer(int x, int y)
             {
-                SDL_SetRenderDrawColor(renderer, 98,4,255,1);
+                SDL_SetRenderDrawColor(renderer, 0,128,0,1);
                 SDL_RenderDrawPoint(renderer, x, y);
                 nextGrid[x][y] = onPlayer;
         
             }
-                
                 
                 
