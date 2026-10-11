@@ -6,8 +6,10 @@
     class SDL
     {
         public:
-        static constexpr int width{72};
-        static constexpr int height{64};
+        static constexpr int screenWidth{72};
+        static constexpr int screenHeight{64};
+        static constexpr int hiddenScreenWidth{72*4};
+        static constexpr int hiddenScreenHeight{64*4};
         
         
         //SDL.cpp
@@ -22,10 +24,10 @@
         Mix_Chunk* soundLong = nullptr;
         Mix_Chunk* deathSound = nullptr;
         bool running{true};
-        static constexpr int middleX {width/2};
-        static constexpr int middleY {height/2};
+        static constexpr int middleX {screenWidth/2};
+        static constexpr int middleY {screenHeight/2};
         
-        Player player{middleX, middleY - 20};
+        Player player{middleX, middleY};
 
         const int scale{14};
         
@@ -47,8 +49,11 @@
             onPlayer = 2
         };   
         
-        int grid[width*4][height*4]{};
-        int nextGrid[width*4][height*4]{};
+        int grid[hiddenScreenWidth][hiddenScreenHeight]{};
+        int nextGrid[hiddenScreenWidth][hiddenScreenHeight]{};
+        int* ptrGrid[hiddenScreenWidth+screenWidth][hiddenScreenHeight+screenHeight]{};
+        int* ptrNextGrid[hiddenScreenWidth+screenWidth][hiddenScreenHeight+screenHeight]{};
+
         int countNeighbors(int x, int y);
         void drawLife(int x, int y);
         

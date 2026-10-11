@@ -12,30 +12,27 @@ int main()
     Mix_PlayChannel(-1, SDL.sound, 0);
 
     
-    SDL.drawLife(30, 30);
-    SDL.drawLife(30, 31);
-    SDL.drawLife(31, 31);
-    SDL.drawLife(31, 31);
-
+    
     SDL.drawLife(50, 60);
     SDL.drawLife(51, 60);
     SDL.drawLife(50, 61);
     SDL.drawLife(51, 61);
     
-    
+    SDL.gliderGun(0, 0);
 
     long long framecount{};
-
+    
     while (SDL.running)
     {
         SDL.renderBackground();
         SDL.ifEvent();
-
-
+        
+        
         
         SDL.renderPlayer(SDL.player.posX, SDL.player.posY);
 
-        if(framecount % 120 == 0)
+
+        if(framecount % 4 == 0)
         {
             SDL.ruleLife();
         }

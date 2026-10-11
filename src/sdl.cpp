@@ -3,7 +3,7 @@
     SDL::SDL()
     {
     SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
-    SDL_CreateWindowAndRenderer(width * scale, height * scale, 0, &window, &renderer);
+    SDL_CreateWindowAndRenderer(screenWidth * scale, screenHeight * scale, 0, &window, &renderer);
     SDL_RenderSetScale(renderer, scale, scale);
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
     SDL::sound = Mix_LoadWAV("sounds/sound.mp3");
@@ -61,7 +61,7 @@
                         if(state[SDL_SCANCODE_RIGHT]) 
                         {
                             //std::cerr << "key RIGHT pressed" << std::endl;
-                            if(SDL::player.posX < width -2){SDL::player.posX ++;}
+                            if(SDL::player.posX < screenWidth -2){SDL::player.posX ++;}
                             
                         }
                         if(state[SDL_SCANCODE_LEFT]) 
@@ -79,7 +79,7 @@
                         if(state[SDL_SCANCODE_DOWN]) 
                         {
                             //std::cerr << "key DOWN pressed" << std::endl;
-                            if(SDL::player.posY < height -2)SDL::player.posY ++ ;
+                            if(SDL::player.posY < screenHeight -2)SDL::player.posY ++ ;
                          
                         }
                     }

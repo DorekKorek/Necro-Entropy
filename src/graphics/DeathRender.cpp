@@ -10,9 +10,9 @@ void SDL::renderDeath()
             
             SDL_Delay(1000);
             renderBackground();
-           for(int indexX{}; indexX < width ; indexX++)
+           for(int indexX{}; indexX < screenWidth ; indexX++)
            {
-               for(int indexY{}; indexY < height; indexY++)
+               for(int indexY{}; indexY < screenHeight; indexY++)
                {    
                    grid[indexX][indexY] = grid[indexX][indexY + moveUp];    
                 }
@@ -24,7 +24,7 @@ void SDL::renderDeath()
             if (moveUp == 50){break;}
         }
         
-        SDL_Delay(delayTime+500);
+        SDL_Delay(delayTime);
         renderBackground();
         deathLetter('Y');
         deathLetter('O');
@@ -42,7 +42,7 @@ void SDL::renderDeath()
         deathLetter('d');
         SDL_RenderPresent(renderer);
       Mix_PlayChannel(-1, soundLong, 0);
-        SDL_Delay(delayTime);
+        SDL_Delay(delayTime +500);
        
 
         Quit();
