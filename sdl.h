@@ -21,9 +21,8 @@
         public:
         Player player;
         
-        
         //SDL.cpp
-        SDL();
+             SDL();
         void Quit();
         void ifEvent();
         void renderBackground();
@@ -34,33 +33,34 @@
         bool running{true};
         static constexpr int middleX {width/2};
         static constexpr int middleY {height/2};
-
+        
         const int scale{14};
-        int delayTime = 800;
         
         //dots.cpp
+        int delayTime = 800;
         void renderLine(int x, int y, int length, char cordinates);
         void renderLineX(int x, int y, int length);
         void renderLineY(int x, int y, int length);
         void renderHello();
         void letter(char letter);
-        
         //game.cpp
         enum isOn
         {
             off = 0,
             on = 1,
-            playerOn = 0
-        };
+            onPlayer = 2
+        };   
         
-        public:      
-        int grid[width][height]{};
-        int nextGrid[width][height]{};
-        void renderPlayer(int x, int y);
-        void rulesOfLife(int x, int y);
+        int grid[width*2][height*2]{};
+        int nextGrid[width*2][height*2]{};
         int countNeighbors(int x, int y);
-        void renderLife(int x, int y);
-        void gameLoop();
+        void drawLife(int x, int y);
+        
+        void rulesOfLife(int x, int y);
+        void ruleLife();
+        void renderLife();
+
+        void renderPlayer(int x, int y);
     };
                                                                                                                                                                         
-    inline Player::Player() : posX {SDL::middleX}, posY {SDL::middleY} {};   
+    inline Player::Player() : posX {SDL::middleX}, posY {SDL::middleY -20} {};   
