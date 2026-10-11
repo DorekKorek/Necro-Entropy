@@ -11,6 +11,7 @@ int main()
     //SDL.renderHello();
     Mix_PlayChannel(-1, SDL.sound, 0);
 
+    
     SDL.drawLife(30, 30);
     SDL.drawLife(30, 31);
     SDL.drawLife(31, 31);
@@ -21,6 +22,7 @@ int main()
     SDL.drawLife(50, 61);
     SDL.drawLife(51, 61);
     
+    
 
     long long framecount{};
 
@@ -28,6 +30,9 @@ int main()
     {
         SDL.renderBackground();
         SDL.ifEvent();
+
+
+        
         SDL.renderPlayer(SDL.player.posX, SDL.player.posY);
 
         if(framecount % 120 == 0)
@@ -37,6 +42,7 @@ int main()
             SDL.renderLife();
 
         framecount++;
+
 
         SDL_RenderPresent(SDL.renderer);
         SDL_Delay(16);

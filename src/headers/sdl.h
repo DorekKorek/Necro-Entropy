@@ -19,6 +19,7 @@
         SDL_Window* window = nullptr;
         SDL_Renderer* renderer = nullptr;
         Mix_Chunk* sound = nullptr;
+        Mix_Chunk* soundLong = nullptr;
         Mix_Chunk* deathSound = nullptr;
         bool running{true};
         static constexpr int middleX {width/2};
@@ -28,14 +29,16 @@
 
         const int scale{14};
         
-        //dots.cpp
+        //graphic.cpp
         int delayTime = 800;
         void renderLine(int x, int y, int length, char cordinates);
         void renderLineX(int x, int y, int length);
         void renderLineY(int x, int y, int length);
         void renderHello();
         void renderDeath();
-        void letter(char letter);
+        void helloLetter(char letter);
+        void deathLetter(char letter);
+        void gliderGun(int x, int y);
         //game.cpp
         enum isOn
         {

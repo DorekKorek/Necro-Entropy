@@ -6,8 +6,9 @@
     SDL_CreateWindowAndRenderer(width * scale, height * scale, 0, &window, &renderer);
     SDL_RenderSetScale(renderer, scale, scale);
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
-    SDL::sound = Mix_LoadWAV("sounds/beton.mp3");
+    SDL::sound = Mix_LoadWAV("sounds/sound.mp3");
     SDL::deathSound = Mix_LoadWAV("sounds/death.mp3");
+    SDL::soundLong = Mix_LoadWAV("sounds/soundLong.mp3");
     }
 
     void SDL::Quit()

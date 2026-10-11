@@ -1,6 +1,6 @@
 {
   "code-runner.runInTerminal": true,
   "code-runner.executorMap": {
-    "cpp": "cd $dir && g++ -std=c++20 -g -Wall -Wextra *.cpp -o life $(pkg-config --cflags --libs sdl2 SDL2_mixer) && ./life"
+    "cpp": "cd $workspaceRoot/src && g++ -std=c++20 -g -Wall -Wextra -I. -Iheaders *.cpp graphics/*.cpp -o life $(pkg-config --cflags --libs sdl2 SDL2_mixer) && ./life"
   }
 }
