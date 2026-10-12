@@ -51,9 +51,7 @@
         
         int grid[hiddenScreenWidth][hiddenScreenHeight]{};
         int nextGrid[hiddenScreenWidth][hiddenScreenHeight]{};
-        int* ptrGrid[hiddenScreenWidth+screenWidth][hiddenScreenHeight+screenHeight]{};
-        int* ptrNextGrid[hiddenScreenWidth+screenWidth][hiddenScreenHeight+screenHeight]{};
-
+        
         int countNeighbors(int x, int y);
         void drawLife(int x, int y);
         

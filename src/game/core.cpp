@@ -19,9 +19,9 @@ These rules are collectively known as B3/S23, meaning a dead cell is born with 3
 void SDL::ruleLife()
     {
 
-        for(int indexX{-(hiddenScreenWidth)}; indexX < hiddenScreenWidth -2; indexX++)
+        for(int indexX{2}; indexX < hiddenScreenWidth -2; indexX++)
         {
-            for(int indexY{-(hiddenScreenHeight)}; indexY < hiddenScreenHeight-2; indexY++)
+            for(int indexY{2}; indexY < hiddenScreenHeight-2; indexY++)
             {
                 rulesOfLife(indexX, indexY);
             }
@@ -34,9 +34,9 @@ void SDL::ruleLife()
 
         if (skipGridSet == 0)
         {
-            for(int indexX{-(hiddenScreenWidth)}; indexX < hiddenScreenWidth ; indexX++)
+            for(int indexX{2}; indexX < hiddenScreenWidth ; indexX++)
             {
-                for(int indexY{-(hiddenScreenHeight)}; indexY < hiddenScreenHeight; indexY++)
+                for(int indexY{2}; indexY < hiddenScreenHeight; indexY++)
                 {
                     if((nextGrid[indexX][indexY] == onPlayer) && grid[indexX][indexY] == onLife)
                     {

@@ -18,7 +18,7 @@ int main()
     SDL.drawLife(50, 61);
     SDL.drawLife(51, 61);
     
-    SDL.gliderGun(0, 0);
+    SDL.gliderGun(15, 15);
 
     long long framecount{};
     
@@ -32,7 +32,7 @@ int main()
         SDL.renderPlayer(SDL.player.posX, SDL.player.posY);
 
 
-        if(framecount % 4 == 0)
+        if(framecount % 3 == 0)
         {
             SDL.ruleLife();
         }
