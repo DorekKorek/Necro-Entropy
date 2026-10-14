@@ -13,12 +13,13 @@ int main()
 
     
     
-    SDL.drawLife(50, 60);
-    SDL.drawLife(51, 60);
-    SDL.drawLife(50, 61);
-    SDL.drawLife(51, 61);
-    
-    SDL.gliderGun(15, 15);
+    //SDL.drawLife(SDL.middleX, SDL.middleY);
+ int i = 20; 
+
+    SDL.gliderGun(34 - i, 10 - i);
+    SDL.gliderGun(0- i, 0 - i );
+    SDL.gliderGun(-34 - i, -10 - i );
+    SDL.gliderGun(-34 *2 - i, -10 *2 - i );
 
     long long framecount{};
     

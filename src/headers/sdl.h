@@ -8,8 +8,11 @@
         public:
         static constexpr int screenWidth{72};
         static constexpr int screenHeight{64};
-        static constexpr int hiddenScreenWidth{72*4};
-        static constexpr int hiddenScreenHeight{64*4};
+        static constexpr int hiddenScreenWidth{72*6};
+        static constexpr int hiddenScreenHeight{64*6};
+        static constexpr int offsetWidth{100*2};
+        static constexpr int offsetHeight{80*2};
+
         
         
         //SDL.cpp

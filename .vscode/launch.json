@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug Conway's Game of Life",
+            "name": "Debug Necro-Entropy",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/src/life",

@@ -32,6 +32,9 @@ void SDL::ruleLife()
     void SDL::renderLife(int skipGridSet)
     {
 
+        
+        //generates a new frame with conway logc
+        //and redners death of collison
         if (skipGridSet == 0)
         {
             for(int indexX{2}; indexX < hiddenScreenWidth ; indexX++)
@@ -47,13 +50,14 @@ void SDL::ruleLife()
             }
         }
         
-        for(int indexX{}; indexX < hiddenScreenWidth ; indexX++)
+        //draws the new frame
+        for(int indexX{}; indexX < screenWidth ; indexX++)
         {
-            for(int indexY{}; indexY < hiddenScreenHeight; indexY++)
+            for(int indexY{}; indexY < screenHeight; indexY++)
             {
                 
                 // if offLife dont render anything
-                if(grid[indexX][indexY] == onLife)
+                if(grid[indexX + offsetWidth][indexY + offsetHeight] == onLife)
                 {
                     SDL_SetRenderDrawColor(renderer, 255,255,255,255);
                     SDL_RenderDrawPoint(renderer, indexX, indexY);
@@ -104,9 +108,17 @@ void SDL::ruleLife()
                 
     void SDL::drawLife(int x, int y)
             {
-                SDL_SetRenderDrawColor(renderer, 255,255,255,255);
-                SDL_RenderDrawPoint(renderer, x, y);
-                grid[x][y] = onLife;
+            int gx = x + offsetWidth;
+            int gy = y + offsetHeight;
+    
+            
+            SDL_SetRenderDrawColor(renderer, 255,255,255,255);
+            SDL_RenderDrawPoint(renderer, x, y);
+            if (gx >= 0 && gx < hiddenScreenWidth && gy >= 0 && gy < hiddenScreenHeight)           
+                {
+                    grid[gx][gy] = onLife;
+                }
+                //grid[x][y] = onLife;
         
             }  
 
@@ -114,7 +126,7 @@ void SDL::ruleLife()
             {
                 SDL_SetRenderDrawColor(renderer, 0,128,0,1);
                 SDL_RenderDrawPoint(renderer, x, y);
-                nextGrid[x][y] = onPlayer;
+                nextGrid[x + offsetWidth][y + offsetHeight] = onPlayer;
         
             }
                 
