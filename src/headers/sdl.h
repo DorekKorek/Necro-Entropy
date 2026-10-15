@@ -6,7 +6,7 @@
     class SDL
     {
         public:
-        static constexpr int screenWidth{72};
+        static constexpr int screenWidth{74};
         static constexpr int screenHeight{64};
         static constexpr int hiddenScreenWidth{72*6};
         static constexpr int hiddenScreenHeight{64*6};
@@ -45,7 +45,7 @@
         void gliderGunRightDown(int x, int y);
         void gliderGunLeftDown(int x, int y);
         void drawLetter(char letter, int x, int y);   
-        void Democritus(int x,int  y);
+        void quoteDemocritus(int x,int  y);
 
         //game.cpp
         enum isOn
