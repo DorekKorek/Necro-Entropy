@@ -4,7 +4,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++ -std=c++20 -g -Wall -Wextra -fdiagnostics-color=always -I. -Iheaders ../main.cpp graphics/*.cpp game/*.cpp -o life $(pkg-config --cflags --libs sdl2 SDL2_mixer)",
+            "command": "g++ -std=c++20 -g -Wall -Wextra -fdiagnostics-color=always -I. -Iheaders ../main.cpp graphics/*.cpp graphics/Drawings/*.cpp game/*.cpp -o life $(pkg-config --cflags --libs sdl2 SDL2_mixer)",
             "options": {
                 "cwd": "${workspaceFolder}/src"
             },
@@ -15,7 +15,22 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Build Necro-Entropy."
+            "detail": "Kompilacja Necro-Entropy (g++, C++20, SDL2, SDL2_mixer)"
+        },
+        {
+            "label": "C/C++: g++ build active file",
+            "type": "shell",
+            "command": "g++ -std=c++20 -g -Wall -Wextra -fdiagnostics-color=always -I. -Iheaders ../main.cpp graphics/*.cpp graphics/Drawings/*.cpp game/*.cpp -o life $(pkg-config --cflags --libs sdl2 SDL2_mixer)",
+            "options": {
+                "cwd": "${workspaceFolder}/src"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "detail": "Kompilacja projektu dla przycisku Run/Debug w rozszerzeniu C/C++"
         }
     ]
 }

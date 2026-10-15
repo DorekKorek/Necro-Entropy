@@ -6,7 +6,8 @@
         "${workspaceFolder}/**",
         "${workspaceFolder}/src",
         "${workspaceFolder}/src/headers",
-        "/usr/include/SDL2"
+        "/usr/include/SDL2",
+        "/usr/include"
       ],
       "defines": [],
       "compilerPath": "/usr/bin/g++",

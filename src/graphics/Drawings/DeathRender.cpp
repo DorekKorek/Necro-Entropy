@@ -10,14 +10,14 @@ void SDL::renderDeath()
             
             SDL_Delay(1000);
             renderBackground();
-           for(int indexX{}; indexX < screenWidth ; indexX++)
+           for(int indexX{}; indexX < hiddenScreenWidth ; indexX++)
            {
-               for(int indexY{}; indexY < screenHeight; indexY++)
+               for(int indexY{}; indexY < hiddenScreenHeight; indexY++)
                {    
-                   grid[indexX][indexY] = grid[indexX][indexY + moveUp];    
+                   grid[indexX+ offsetWidth][indexY + offsetHeight] = grid[indexX + offsetWidth][indexY + offsetHeight + moveUp];    
                 }
             }
-            renderLife(1);
+            drawLife();
             SDL_RenderPresent(renderer);
             Mix_PlayChannel(-1, sound, 0);
             moveUp+= 10;

@@ -10,13 +10,14 @@
         static constexpr int screenHeight{64};
         static constexpr int hiddenScreenWidth{72*6};
         static constexpr int hiddenScreenHeight{64*6};
-        static constexpr int offsetWidth{100*2};
-        static constexpr int offsetHeight{80*2};
-
+        static constexpr int offsetWidth{hiddenScreenWidth/2};
+        static constexpr int offsetHeight{hiddenScreenHeight/2};
         
+        int grid[hiddenScreenWidth][hiddenScreenHeight]{};
+        int nextGrid[hiddenScreenWidth][hiddenScreenHeight]{};
         
         //SDL.cpp
-             SDL();
+        SDL();
         void Quit();
         void ifEvent();
         void renderBackground();
@@ -39,11 +40,13 @@
         void renderLine(int x, int y, int length, char cordinates);
         void renderLineX(int x, int y, int length);
         void renderLineY(int x, int y, int length);
-        void renderHello();
         void renderDeath();
-        void helloLetter(char letter);
         void deathLetter(char letter);
-        void gliderGun(int x, int y);
+        void gliderGunRightDown(int x, int y);
+        void gliderGunLeftDown(int x, int y);
+        void drawLetter(char letter, int x, int y);   
+        void Democritus(int x,int  y);
+
         //game.cpp
         enum isOn
         {
@@ -52,16 +55,12 @@
             onPlayer = 2
         };   
         
-        int grid[hiddenScreenWidth][hiddenScreenHeight]{};
-        int nextGrid[hiddenScreenWidth][hiddenScreenHeight]{};
-        
         int countNeighbors(int x, int y);
         void drawLife(int x, int y);
         
         void rulesOfLife(int x, int y);
         void ruleLife();
-        void renderLife(int skipGridSet =0);
-        void isDead();
-
+        void setLifeAndDraw();
+        void drawLife();
         void renderPlayer(int x, int y);
     };
