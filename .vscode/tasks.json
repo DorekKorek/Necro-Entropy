@@ -3,10 +3,26 @@
     "tasks": [
         {
             "label": "build",
-            "type": "shell",
-            "command": "g++ -std=c++20 -g -Wall -Wextra -fdiagnostics-color=always main.cpp sdl.cpp conway.cpp -o necroentropy $(pkg-config --cflags --libs sdl2 SDL2_mixer)",
+            "type": "process",
+            "command": "/bin/bash",
+            "args": [
+                "-lc",
+                "g++ -std=c++20 -g -Wall -Wextra -fdiagnostics-color=always -I. -Igame main.cpp sdl.cpp game/core.cpp game/conway.cpp game/snippets.cpp -o necroentropy $(pkg-config --cflags --libs sdl2 SDL2_mixer)"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}"
+            },
+            "windows": {
+                "command": "C:\\msys64\\usr\\bin\\bash.exe",
+                "args": [
+                    "-lc",
+                    "g++ -std=c++20 -g -Wall -Wextra -fdiagnostics-color=always -I. -Igame main.cpp sdl.cpp game/core.cpp game/conway.cpp game/snippets.cpp -o necroentropy.exe $(pkg-config --cflags --libs sdl2 SDL2_mixer)"
+                ],
+                "options": {
+                    "env": {
+                        "MSYSTEM": "UCRT64"
+                    }
+                }
             },
             "problemMatcher": [
                 "$gcc"
@@ -15,7 +31,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Build Necro-Entropy (g++, C++20, SDL2, SDL2_mixer)"
+            "detail": "Build the active Necro-Entropy sources with the platform's g++ and SDL2 packages"
         }
     ]
 }

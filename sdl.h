@@ -2,7 +2,7 @@
 #include "includes.h"
 
     
-    enum Type
+     enum Type
     {
         dead = 0,
         alive = 1,
@@ -28,11 +28,8 @@
 
 
         
-        //int grid[hiddenScreenWidth][hiddenScreenHeight]{};
-        //int nextGrid[hiddenScreenWidth][hiddenScreenHeight]{};
-
+        
         std::array<std::array<int, fullScreenY>, fullScreenX> grid{};
-        std::array<std::array<int, fullScreenY>, fullScreenX> nextGrid{};
         
         //SDL.cpp
         SDL();
@@ -40,11 +37,16 @@
         void ifEvent();
         void renderBackground();
         
+
+        void setGridCellState(int x, int y, int type = alive);
+        void drawToScreen(int x, int y, int type);
+
         
         int countNeighbors(int x, int y);
-        
-        void gridRender();
-        void drawOnScreen(int x, int y);
+        bool conwayLogic(int x, int y);
+
+        void updateCellState();
+        void displayGrid();
 
 
         SDL_Window* window = nullptr;
