@@ -43,8 +43,8 @@
 
         
         int countNeighbors(int x, int y);
-        bool conwayLogic(int x, int y);
-
+        int conwayLogic(int x, int y);
+        
         void updateCellState();
         void displayGrid();
 

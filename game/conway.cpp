@@ -1,6 +1,6 @@
 #include "sdl.h"
 
-bool SDL::conwayLogic(int x, int y)
+int SDL::conwayLogic(int x, int y)
 {
     int neighbors {countNeighbors(x, y)};
     
