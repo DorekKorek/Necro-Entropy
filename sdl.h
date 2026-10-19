@@ -1,12 +1,22 @@
 #pragma once
 #include "includes.h"
 
+    class SDL;
+
+    class Player
+    {
+        public:
+        int posX;
+        int posY;
+        
+    };
     
      enum Type
     {
         dead = 0,
         alive = 1,
-        monster = 2
+        player = 2,
+        monster = 3
 
     };
 
@@ -25,8 +35,7 @@
         static constexpr int middleX {screenX/2};
         static constexpr int middleY {screenY/2};
 
-
-
+        
         
         
         std::array<std::array<int, fullScreenY>, fullScreenX> grid{};
@@ -37,9 +46,11 @@
         void ifEvent();
         void renderBackground();
         
-
+        Player player{};
+        
         void setGridCellState(int x, int y, int type = alive);
         void drawToScreen(int x, int y, int type);
+        void renderPlayer();
 
         
         int countNeighbors(int x, int y);

@@ -53,7 +53,7 @@
                 Quit();
             }
 
-            /*
+            
             else if (event.type == SDL_KEYDOWN)
             {  
                 if (event.key.repeat == 0 && SDL::player.posX)
@@ -63,7 +63,7 @@
                         if(state[SDL_SCANCODE_RIGHT]) 
                         {
                             //std::cerr << "key RIGHT pressed" << std::endl;
-                            if(SDL::player.posX < screenWidth -2){SDL::player.posX ++;}
+                            if(SDL::player.posX < screenX -2){SDL::player.posX ++;}
                             
                         }
                         if(state[SDL_SCANCODE_LEFT]) 
@@ -81,12 +81,11 @@
                         if(state[SDL_SCANCODE_DOWN]) 
                         {
                             //std::cerr << "key DOWN pressed" << std::endl;
-                            if(SDL::player.posY < screenHeight -2)SDL::player.posY ++ ;
+                            if(SDL::player.posY < screenY -2)SDL::player.posY ++ ;
                          
                         }
-                    }
                 }
-            }*/
+            }
         }
         
     }
