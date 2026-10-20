@@ -29,7 +29,7 @@ int SDL::countNeighbors(int x, int y)
             //  if makes sure the check wont go out of bounds
             if((gx > 0 && gy > 0) && gx < fullScreenX-1 && gy < fullScreenY-1 )
             {
-                if((grid[gx][gy] >= alive) && !(nx == 0 && ny == 0))
+                if((grid[gx][gy] == (alive)) && !(nx == 0 && ny == 0))
                 {
                     neighbors++;
                 }

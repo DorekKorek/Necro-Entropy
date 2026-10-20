@@ -37,7 +37,6 @@
 
         
         
-        
         std::array<std::array<int, fullScreenY>, fullScreenX> grid{};
         
         //SDL.cpp
@@ -50,15 +49,21 @@
         
         void setGridCellState(int x, int y, int type = alive);
         void drawToScreen(int x, int y, int type);
-        void renderPlayer();
-
-        
+        void PlayerLogic();
         int countNeighbors(int x, int y);
         int conwayLogic(int x, int y);
+        void collisonCheck();
         
         void updateCellState();
         void displayGrid();
 
+        void renderDeath();
+        void deathLetter(char letter);
+        void drawLetter(char letter, int x, int y);   
+        void renderLine(int x, int y, int length, char cordinates);
+        void renderLineX(int x, int y, int length);
+        void renderLineY(int x, int y, int length);
+        void quotes();
 
         SDL_Window* window = nullptr;
         SDL_Renderer* renderer = nullptr;

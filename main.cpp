@@ -23,18 +23,26 @@ int main()
     SDL.setGridCellState(19, 14);
     SDL.setGridCellState(19, 15);
     SDL.setGridCellState(19, 16);
+    
+    SDL.setGridCellState(19, SDL.screenY);
+    SDL.setGridCellState(19, SDL.screenY+1);
+    SDL.setGridCellState(19, SDL.screenY+2);
 
+    SDL.setGridCellState(25, 12, monster);
+    SDL.setGridCellState(25, 13, monster);
+    SDL.setGridCellState(25, 14, monster);
+    SDL.setGridCellState(25, 15, monster);
+    SDL.setGridCellState(25, 16, monster);
 
-
-
+    SDL.quotes();
 
     int frames{1};
     
     while (SDL.running)
     {
         SDL.renderBackground();
+        SDL.PlayerLogic();
         SDL.ifEvent();
-        
         if(frames % 30 == 0)
         {
            SDL.updateCellState();

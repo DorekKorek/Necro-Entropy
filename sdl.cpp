@@ -9,6 +9,11 @@
     SDL::sound = Mix_LoadWAV("sounds/sound.mp3");
     SDL::deathSound = Mix_LoadWAV("sounds/death.mp3");
     SDL::soundLong = Mix_LoadWAV("sounds/soundLong.mp3");
+    player.posX = SDL::middleX + SDL::offsetX;
+    player.posY = SDL::middleY + SDL::offsetY;
+    
+    //player.posX = SDL::middleX;
+    //player.posY = SDL::middleY;
     }
 
     void SDL::Quit()
@@ -63,25 +68,29 @@
                         if(state[SDL_SCANCODE_RIGHT]) 
                         {
                             //std::cerr << "key RIGHT pressed" << std::endl;
-                            if(SDL::player.posX < screenX -2){SDL::player.posX ++;}
+                            //if(SDL::player.posX < screenX -2)
+                            {SDL::player.posX ++;}
                             
                         }
                         if(state[SDL_SCANCODE_LEFT]) 
                         {
                             //std::cerr << "key LEFT pressed" << std::endl;
-                            if(SDL::player.posX > 2){SDL::player.posX --;}
+                            //if(SDL::player.posX > 2)
+                            {SDL::player.posX --;}
                          
                         }
                         if(state[SDL_SCANCODE_UP]) 
                         {
                             //std::cerr << "key UP pressed" << std::endl;
-                            if(SDL::player.posY > 2)SDL::player.posY -- ;
+                            //if(SDL::player.posY > 2)
+                            SDL::player.posY -- ;
                          
                         }
                         if(state[SDL_SCANCODE_DOWN]) 
                         {
                             //std::cerr << "key DOWN pressed" << std::endl;
-                            if(SDL::player.posY < screenY -2)SDL::player.posY ++ ;
+                            //if(SDL::player.posY < screenY -2)
+                            SDL::player.posY ++ ;
                          
                         }
                 }
