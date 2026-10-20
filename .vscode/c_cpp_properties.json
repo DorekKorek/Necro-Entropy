@@ -4,6 +4,7 @@
       "name": "Linux",
       "includePath": [
         "${workspaceFolder}/**",
+        "${workspaceFolder}/includes",
         "/usr/include/**"
       ],
       "defines": [],
@@ -22,6 +23,7 @@
       "name": "Win32",
       "includePath": [
         "${workspaceFolder}/**",
+        "${workspaceFolder}/includes",
         "C:/msys64/ucrt64/include/**"
       ],
       "defines": [],

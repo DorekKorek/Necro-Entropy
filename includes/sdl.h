@@ -42,7 +42,7 @@
         //SDL.cpp
         SDL();
         void Quit();
-        void ifEvent();
+        void ifEvent(int frames = 0);
         void renderBackground();
         
         Player player{};

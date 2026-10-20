@@ -44,6 +44,10 @@ void SDL::updateCellState()
             if(conwayLogic(gx, gy))
             {
                 // idea: make it so that conwayLogic will return a intiger so that i know the type
+                if(grid[gx][gy] == Type::player)
+                {
+                    renderDeath();
+                }   
                 if(grid[gx][gy] == dead)
                 {
                     nextGrid[gx][gy] = alive;   

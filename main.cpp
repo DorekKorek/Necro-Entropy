@@ -5,10 +5,7 @@ int main()
 {
 
     //SDL INITALIZATION
-    SDL SDL{};
-
-    Mix_PlayChannel(-1, SDL.sound, 0);
-    
+    SDL SDL{}; 
     
     
     SDL.setGridCellState(19, 5);
@@ -34,15 +31,15 @@ int main()
     SDL.setGridCellState(25, 15, monster);
     SDL.setGridCellState(25, 16, monster);
 
-    SDL.quotes();
+    //SDL.quotes();
 
-    int frames{1};
+    int frames{30};
     
     while (SDL.running)
     {
         SDL.renderBackground();
         SDL.PlayerLogic();
-        SDL.ifEvent();
+        SDL.ifEvent(frames);
         if(frames % 30 == 0)
         {
            SDL.updateCellState();

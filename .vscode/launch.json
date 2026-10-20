@@ -5,7 +5,7 @@
             "name": "Debug Necro-Entropy",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/necroentropy",
+            "program": "${workspaceFolder}/build/necroentropy",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -15,11 +15,11 @@
             "miDebuggerPath": "gdb",
             "preLaunchTask": "build",
             "linux": {
-                "program": "${workspaceFolder}/necroentropy",
+                "program": "${workspaceFolder}/build/necroentropy",
                 "miDebuggerPath": "/usr/bin/gdb"
             },
             "windows": {
-                "program": "${workspaceFolder}/necroentropy.exe",
+                "program": "${workspaceFolder}/build/necroentropy.exe",
                 "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe",
                 "environment": [
                     {

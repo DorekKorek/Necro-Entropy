@@ -48,20 +48,22 @@
         
     }
 
-    void SDL::ifEvent()
+    void SDL::ifEvent(int frames)
     {
         SDL_Event event;
-        while (SDL_PollEvent(&event))
+
+         while (SDL_PollEvent(&event))
         {
             if (event.type == SDL_QUIT)
             {
                 Quit();
             }
+        }
 
-            
-            else if (event.type == SDL_KEYDOWN)
+       // if (event.type == SDL_KEYDOWN)
             {  
-                if (event.key.repeat == 0 && SDL::player.posX)
+            //    if (event.key.repeat == 0 && SDL::player.posX)
+                if(frames % 2 == 0)
                 {
                         const Uint8* state = SDL_GetKeyboardState(nullptr);
 
@@ -95,8 +97,6 @@
                         }
                 }
             }
-        }
-        
     }
     
        

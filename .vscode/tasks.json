@@ -7,7 +7,7 @@
             "command": "/bin/bash",
             "args": [
                 "-lc",
-                "g++ -std=c++20 -g -Wall -Wextra -fdiagnostics-color=always -I. -Igame main.cpp sdl.cpp game/core.cpp game/conway.cpp graphics/*.cpp -o necroentropy $(pkg-config --cflags --libs sdl2 SDL2_mixer)"
+                "mkdir -p build && g++ -std=c++20 -g -Wall -Wextra -fdiagnostics-color=always -I. -Iincludes -Isrc main.cpp sdl.cpp src/core.cpp src/conway.cpp graphics/*.cpp -o build/necroentropy $(pkg-config --cflags --libs sdl2 SDL2_mixer)"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -16,11 +16,13 @@
                 "command": "C:\\msys64\\usr\\bin\\bash.exe",
                 "args": [
                     "-lc",
-                    "g++ -std=c++20 -g -Wall -Wextra -fdiagnostics-color=always -I. -Igame main.cpp sdl.cpp game/core.cpp game/conway.cpp graphics/*.cpp -o necroentropy.exe $(pkg-config --cflags --libs sdl2 SDL2_mixer)"
+                    "mkdir -p build && g++ -std=c++20 -g -Wall -Wextra -fdiagnostics-color=always -I. -Iincludes -Isrc main.cpp sdl.cpp src/core.cpp src/conway.cpp graphics/*.cpp -o build/necroentropy.exe $(pkg-config --cflags --libs sdl2 SDL2_mixer) -DSDL_MAIN_HANDLED -Umain"
                 ],
                 "options": {
+                    "cwd": "${workspaceFolder}",
                     "env": {
-                        "MSYSTEM": "UCRT64"
+                        "MSYSTEM": "UCRT64",
+                        "CHERE_INVOKING": "1"
                     }
                 }
             },
