@@ -48,7 +48,7 @@
         
     }
 
-    void SDL::ifEvent(int frames = 0)
+    void SDL::ifEvent(int frames)
     {
         SDL_Event event;
 

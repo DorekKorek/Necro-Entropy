@@ -16,15 +16,16 @@ int main()
         SDL.renderBackground();
         SDL.PlayerLogic();
         SDL.ifEvent(frames);
-        SDL.timer();
         
         if(frames % 30 == 0)
         {
-
-           SDL.updateCellState();
-
+            
+            SDL.updateCellState();
+            
         }
         SDL.displayGrid();
+        
+        SDL.timer(frames);
 
         SDL_RenderPresent(SDL.renderer);
         SDL_Delay(16);

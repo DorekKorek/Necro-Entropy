@@ -24,7 +24,7 @@
 
 void SDL::drawNumber(int number, int x, int y)
 {
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_SetRenderDrawColor(renderer, 255, 255, 200, 0);
 
     switch(number)
     {
