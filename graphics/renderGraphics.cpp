@@ -22,6 +22,132 @@
     void SDL::renderLineX(int x, int y, int length){renderLine(x, y, length, 'x');}
     void SDL::renderLineY(int x, int y, int length){renderLine(x, y, length, 'y');}
 
+void SDL::drawNumber(int number, int x, int y)
+{
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+
+    switch(number)
+    {
+        case 0:
+        {
+            SDL_RenderDrawPoint(renderer, x - 1, y - 4);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 3);
+            SDL_RenderDrawPoint(renderer, x, y - 3);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 2);
+            SDL_RenderDrawPoint(renderer, x, y - 2);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 1);
+            SDL_RenderDrawPoint(renderer, x, y - 1);
+            SDL_RenderDrawPoint(renderer, x - 1, y);
+            break;
+        }
+        case 1:
+        {
+            SDL_RenderDrawPoint(renderer, x, y);
+            SDL_RenderDrawPoint(renderer, x, y - 1);
+            SDL_RenderDrawPoint(renderer, x, y - 2);
+            SDL_RenderDrawPoint(renderer, x, y - 3);
+            SDL_RenderDrawPoint(renderer, x, y - 4);
+            break;
+        }
+        case 2:
+        {
+            SDL_RenderDrawPoint(renderer, x - 2, y - 4);
+            SDL_RenderDrawPoint(renderer, x - 1, y - 4);
+            SDL_RenderDrawPoint(renderer, x, y - 3);
+            SDL_RenderDrawPoint(renderer, x - 1, y - 2);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 1);
+            SDL_RenderDrawPoint(renderer, x - 2, y);
+            SDL_RenderDrawPoint(renderer, x - 1, y);
+            SDL_RenderDrawPoint(renderer, x, y);
+            break;
+        }
+        case 3:
+        {
+            SDL_RenderDrawPoint(renderer, x - 2, y - 4);
+            SDL_RenderDrawPoint(renderer, x - 1, y - 4);
+            SDL_RenderDrawPoint(renderer, x, y - 3);
+            SDL_RenderDrawPoint(renderer, x - 1, y - 2);
+            SDL_RenderDrawPoint(renderer, x, y - 1);
+            SDL_RenderDrawPoint(renderer, x - 1, y);
+            SDL_RenderDrawPoint(renderer, x - 2, y);
+            break;
+        }
+        case 4:
+        {
+            SDL_RenderDrawPoint(renderer, x - 2, y - 4);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 3);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 2);
+            SDL_RenderDrawPoint(renderer, x - 1, y - 2);
+            SDL_RenderDrawPoint(renderer, x, y - 4);
+            SDL_RenderDrawPoint(renderer, x, y - 3);
+            SDL_RenderDrawPoint(renderer, x, y - 2);
+            SDL_RenderDrawPoint(renderer, x, y - 1);
+            SDL_RenderDrawPoint(renderer, x, y);
+            break;
+        }
+        case 5:
+        {
+            SDL_RenderDrawPoint(renderer, x, y - 4);
+            SDL_RenderDrawPoint(renderer, x - 1, y - 4);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 4);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 3);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 2);
+            SDL_RenderDrawPoint(renderer, x - 1, y - 2);
+            SDL_RenderDrawPoint(renderer, x, y - 1);
+            SDL_RenderDrawPoint(renderer, x - 1, y);
+            SDL_RenderDrawPoint(renderer, x - 2, y);
+            break;
+        }
+        case 6:
+        {
+            SDL_RenderDrawPoint(renderer, x, y - 4);
+            SDL_RenderDrawPoint(renderer, x - 1, y - 4);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 3);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 2);
+            SDL_RenderDrawPoint(renderer, x - 1, y - 2);
+            SDL_RenderDrawPoint(renderer, x, y - 2);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 1);
+            SDL_RenderDrawPoint(renderer, x, y - 1);
+            SDL_RenderDrawPoint(renderer, x - 1, y);
+            break;
+        }
+        case 7:
+        {
+            SDL_RenderDrawPoint(renderer, x - 2, y - 4);
+            SDL_RenderDrawPoint(renderer, x - 1, y - 4);
+            SDL_RenderDrawPoint(renderer, x, y - 4);
+            SDL_RenderDrawPoint(renderer, x, y - 3);
+            SDL_RenderDrawPoint(renderer, x - 1, y - 2);
+            SDL_RenderDrawPoint(renderer, x - 1, y - 1);
+            SDL_RenderDrawPoint(renderer, x - 1, y);
+            break;
+        }
+        case 8:
+        {
+            SDL_RenderDrawPoint(renderer, x - 1, y - 4);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 3);
+            SDL_RenderDrawPoint(renderer, x, y - 3);
+            SDL_RenderDrawPoint(renderer, x - 1, y - 2);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 1);
+            SDL_RenderDrawPoint(renderer, x, y - 1);
+            SDL_RenderDrawPoint(renderer, x - 1, y);
+            break;
+        }
+        case 9:
+        {
+            SDL_RenderDrawPoint(renderer, x - 1, y - 4);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 3);
+            SDL_RenderDrawPoint(renderer, x, y - 3);
+            SDL_RenderDrawPoint(renderer, x - 2, y - 2);
+            SDL_RenderDrawPoint(renderer, x - 1, y - 2);
+            SDL_RenderDrawPoint(renderer, x, y - 2);
+            SDL_RenderDrawPoint(renderer, x, y - 1);
+            SDL_RenderDrawPoint(renderer, x - 1, y);
+            SDL_RenderDrawPoint(renderer, x - 2, y);
+            break;
+        }
+    }
+}
 void SDL::drawLetter(char letter, int x, int y)
 {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);

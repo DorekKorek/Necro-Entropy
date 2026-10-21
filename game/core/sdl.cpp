@@ -48,7 +48,7 @@
         
     }
 
-    void SDL::ifEvent(int frames)
+    void SDL::ifEvent(int frames = 0)
     {
         SDL_Event event;
 
@@ -69,29 +69,25 @@
 
                         if(state[SDL_SCANCODE_RIGHT]) 
                         {
-                            //std::cerr << "key RIGHT pressed" << std::endl;
-                            //if(SDL::player.posX < screenX -2)
+                            if(SDL::player.posX < screenX + offsetX -2)
                             {SDL::player.posX ++;}
                             
                         }
                         if(state[SDL_SCANCODE_LEFT]) 
                         {
-                            //std::cerr << "key LEFT pressed" << std::endl;
-                            //if(SDL::player.posX > 2)
+                            if(SDL::player.posX > 1 + offsetX)
                             {SDL::player.posX --;}
                          
                         }
                         if(state[SDL_SCANCODE_UP]) 
                         {
-                            //std::cerr << "key UP pressed" << std::endl;
-                            //if(SDL::player.posY > 2)
-                            SDL::player.posY -- ;
+                            if(SDL::player.posY > 1 + offsetY)
+                            {SDL::player.posY -- ;}
                          
                         }
                         if(state[SDL_SCANCODE_DOWN]) 
                         {
-                            //std::cerr << "key DOWN pressed" << std::endl;
-                            //if(SDL::player.posY < screenY -2)
+                            if(SDL::player.posY <  offsetY + screenY -2)
                             SDL::player.posY ++ ;
                          
                         }

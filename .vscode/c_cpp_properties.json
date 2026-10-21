@@ -5,6 +5,9 @@
       "includePath": [
         "${workspaceFolder}/**",
         "${workspaceFolder}/includes",
+        "${workspaceFolder}/game",
+        "${workspaceFolder}/game/core",
+        "${workspaceFolder}/graphics",
         "/usr/include/**"
       ],
       "defines": [],
@@ -24,6 +27,9 @@
       "includePath": [
         "${workspaceFolder}/**",
         "${workspaceFolder}/includes",
+        "${workspaceFolder}/game",
+        "${workspaceFolder}/game/core",
+        "${workspaceFolder}/graphics",
         "C:/msys64/ucrt64/include/**"
       ],
       "defines": [],

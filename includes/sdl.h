@@ -58,12 +58,16 @@
         void displayGrid();
 
         void renderDeath();
+        void quotes();
+        void timer();
+        
         void deathLetter(char letter);
         void drawLetter(char letter, int x, int y);   
+        void drawNumber(int number, int x, int y);
+        
         void renderLine(int x, int y, int length, char cordinates);
         void renderLineX(int x, int y, int length);
         void renderLineY(int x, int y, int length);
-        void quotes();
 
         SDL_Window* window = nullptr;
         SDL_Renderer* renderer = nullptr;
