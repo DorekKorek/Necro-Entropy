@@ -13,10 +13,10 @@
     
      enum Type
     {
-        dead = 0,
-        alive = 1,
-        player = 2,
-        monster = 3
+        dead,
+        alive,
+        player, 
+        monster 
 
     };
 
@@ -38,7 +38,7 @@
         
         
         std::array<std::array<int, fullScreenY>, fullScreenX> grid{};
-        
+
         //SDL.cpp
         SDL();
         void Quit();
@@ -58,23 +58,29 @@
         void displayGrid();
 
         
-        void deathLetter(char letter);
+        void bigLetter(char letter);
         void drawLetter(char letter, int x, int y);   
         void drawNumber(int number, int x, int y);
         
-        void renderDeath();
+        void renderEndScreen(bool isVictory);
         void quotes();
-        void timer(int frames);
+        void timer(int frames, int &time);
         
         void renderLine(int x, int y, int length, char cordinates);
         void renderLineX(int x, int y, int length);
         void renderLineY(int x, int y, int length);
+
+        void gliderGunLeftDown(int x, int y);
+        void gliderGunRightDown(int x, int y);
+        void spaceshipLeft(int x, int y);
+        void spaceshipRight(int x, int y);
 
         SDL_Window* window = nullptr;
         SDL_Renderer* renderer = nullptr;
         Mix_Chunk* sound = nullptr;
         Mix_Chunk* soundLong = nullptr;
         Mix_Chunk* deathSound = nullptr;
+        Mix_Chunk* winSound = nullptr;
         bool running{true};
         const int scale{14};
     };

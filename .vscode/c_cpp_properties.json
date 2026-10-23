@@ -7,6 +7,7 @@
         "${workspaceFolder}/includes",
         "${workspaceFolder}/game",
         "${workspaceFolder}/game/core",
+        "${workspaceFolder}/game/levelManager",
         "${workspaceFolder}/graphics",
         "/usr/include/**"
       ],
@@ -29,6 +30,7 @@
         "${workspaceFolder}/includes",
         "${workspaceFolder}/game",
         "${workspaceFolder}/game/core",
+        "${workspaceFolder}/game/levelManager",
         "${workspaceFolder}/graphics",
         "C:/msys64/ucrt64/include/**"
       ],

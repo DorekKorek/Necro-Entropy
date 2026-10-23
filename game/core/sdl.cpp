@@ -9,6 +9,7 @@
     SDL::sound = Mix_LoadWAV("sounds/sound.mp3");
     SDL::deathSound = Mix_LoadWAV("sounds/death.mp3");
     SDL::soundLong = Mix_LoadWAV("sounds/soundLong.mp3");
+    SDL::winSound = Mix_LoadWAV("sounds/win.mp3");
     player.posX = SDL::middleX + SDL::offsetX;
     player.posY = SDL::middleY + SDL::offsetY;
     

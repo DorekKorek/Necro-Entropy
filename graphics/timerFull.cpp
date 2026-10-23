@@ -1,9 +1,8 @@
 #include "sdl.h"
 
-void SDL::timer(int frames)
+void SDL::timer(int frames, int& time)
 {
-    static int time{60};
-    if(time <= 0){return;}
+    if(time < 0){return;}
      
     int ones = time % 10;
     int tens = (time - ones) / 10;

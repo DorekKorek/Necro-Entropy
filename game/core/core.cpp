@@ -10,6 +10,7 @@ void SDL::displayGrid()
             if(grid[gx][gy] == alive)
             {
                 drawToScreen(gx, gy, alive);
+
             }
             if(grid[gx][gy] == monster)
             {
@@ -46,7 +47,7 @@ void SDL::updateCellState()
                 // idea: make it so that conwayLogic will return a intiger so that i know the type
                 if(grid[gx][gy] == Type::player)
                 {
-                    renderDeath();
+                    renderEndScreen(false);
                 }   
                 if(grid[gx][gy] == dead)
                 {
@@ -79,7 +80,7 @@ void SDL::PlayerLogic()
 {
     if(grid[player.posX][player.posY] == alive)
     {
-        renderDeath();
+        renderEndScreen(false);
     }
     grid[player.posX][player.posY] = Type::player;
    SDL_SetRenderDrawColor(renderer, 55, 255, 90, 255);
