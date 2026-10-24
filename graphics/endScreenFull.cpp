@@ -2,6 +2,15 @@
 
 void SDL::renderEndScreen(bool isVictory)
     {
+        //set pixel low to the screen to off
+        for(int gx{0}; gx < fullScreenX; gx++)
+           {
+               for(int gy{offsetY + screenY}; gy < fullScreenY; gy++)
+               {    
+                    grid[gx][gy] = dead;
+               }
+            }
+
         int delayTime = 800;
         if(isVictory == false)
         {

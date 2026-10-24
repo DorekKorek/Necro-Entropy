@@ -26,14 +26,14 @@
         static constexpr int screenX{74};
         static constexpr int screenY{64};
 
-        static constexpr int fullScreenX{72*6};
-        static constexpr int fullScreenY{64*6};
+        static constexpr int fullScreenX{74*6}; // 444
+        static constexpr int fullScreenY{64*6}; // 384
 
-        static constexpr int offsetX{fullScreenX/2};
-        static constexpr int offsetY{fullScreenY/2};
+        static constexpr int offsetX{fullScreenX/2}; // 222
+        static constexpr int offsetY{fullScreenY/2}; // 192
         
-        static constexpr int middleX {screenX/2};
-        static constexpr int middleY {screenY/2};
+        static constexpr int middleX {screenX/2}; // 37
+        static constexpr int middleY {screenY/2}; // 32
 
         
         

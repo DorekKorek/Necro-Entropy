@@ -7,10 +7,10 @@ int main()
     
     SDL SDL{}; 
 
-    //SDL.quotes();
+   // SDL.quotes();
 
     int frames{1};
-    int clockTime{60};
+    int clockTime{30};
 
     int x{+ 50};
     int y{- 80};
@@ -27,15 +27,19 @@ int main()
     {
         SDL.renderBackground();
         SDL.timer(frames, clockTime);
-      //  SDL.PlayerLogic();
+        SDL.PlayerLogic();
         SDL.ifEvent(frames);
-        if(frames % 2 == 0)
+        if(frames % 1 == 0)
         {
             SDL.updateCellState();
         }
-        if(frames % 1000 == 0)
+        if(frames % 100 == 0)
         {     
-
+             for(int i{}; i < SDL.screenY; i++)
+            {
+                SDL.setGridCellState(1, 0 + i);
+                SDL.setGridCellState(0+ i, SDL.screenY );
+            }
         }
         SDL.displayGrid();
         

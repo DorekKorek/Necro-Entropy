@@ -39,7 +39,7 @@ void SDL::updateCellState()
     
     for(int gx{}; gx < fullScreenX ; gx++)
     {
-        for(int gy{}; gy < fullScreenY ; gy++)
+        for(int gy{}; gy < fullScreenY; gy++)
         {
             
             if(conwayLogic(gx, gy))
