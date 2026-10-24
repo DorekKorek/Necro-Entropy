@@ -7,7 +7,7 @@ int main()
     
     SDL SDL{}; 
 
-   // SDL.quotes();
+    SDL.quotes();
 
     int frames{1};
     int clockTime{30};
@@ -21,7 +21,7 @@ int main()
     SDL.gliderGunLeftDown(80 + x, 68 + y);
     SDL.gliderGunLeftDown(95 + x, 80 + y);
 
-
+    Mix_PlayChannel(-1, SDL.sound, 0);
 
     while (SDL.running)
     {
@@ -33,12 +33,12 @@ int main()
         {
             SDL.updateCellState();
         }
-        if(frames % 100 == 0)
+        if(frames % 200 == 0)
         {     
              for(int i{}; i < SDL.screenY; i++)
             {
-                SDL.setGridCellState(1, 0 + i);
-                SDL.setGridCellState(0+ i, SDL.screenY );
+                if(frames % 200 == 0){SDL.setGridCellState(1, 0 + i);}
+                if(frames % 400 == 0){SDL.setGridCellState(SDL.screenX - i, SDL.screenY - 4 );}
             }
         }
         SDL.displayGrid();

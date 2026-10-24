@@ -49,7 +49,7 @@
         
     }
 
-    void SDL::ifEvent(int frames)
+    int SDL::ifEvent(int frames, bool cutscene)
     {
         SDL_Event event;
 
@@ -61,13 +61,18 @@
             }
         }
 
-       // if (event.type == SDL_KEYDOWN)
-            {  
+        const Uint8* state = SDL_GetKeyboardState(nullptr);
+        if((state[SDL_SCANCODE_SPACE]) && (cutscene == true))
+        {
+            return 1;
+        } //skip intro
+        
+        
+        {  
             //    if (event.key.repeat == 0 && SDL::player.posX)
-                if(frames % 2 == 0)
-                {
-                        const Uint8* state = SDL_GetKeyboardState(nullptr);
-
+            if(frames % 2 == 0)
+            {
+                
                         if(state[SDL_SCANCODE_RIGHT]) 
                         {
                             if(SDL::player.posX < screenX + offsetX -2)
@@ -94,6 +99,7 @@
                         }
                 }
             }
+            return 0;
     }
     
        

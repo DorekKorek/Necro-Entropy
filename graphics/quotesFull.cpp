@@ -14,11 +14,12 @@ void SDL::quotes()
     
     while(count <= 4)
     {
-        ifEvent();
+        if((ifEvent(0, true)) == 1){return;}
         SDL_Delay(time - 1000);
         renderBackground();
         Mix_PlayChannel(-1, sound, 0);
         
+        if((ifEvent(0, true)) == 1){return;}
         if(count >= 0)
         {
             i = 0;
@@ -34,7 +35,8 @@ void SDL::quotes()
             }
         }
 
-
+        
+        if((ifEvent(0, true)) == 1){return;}
         if(count >= 1)
         {
 
@@ -57,6 +59,7 @@ void SDL::quotes()
             }
         }
 
+        if((ifEvent(0, true)) == 1){return;}
         if(count >= 2)
         {
             nwSpace += 8;
@@ -69,6 +72,7 @@ void SDL::quotes()
             }
         
 
+        if((ifEvent(0, true)) == 1){return;}
 
             nwSpace += 7;
             space = 0;
@@ -79,6 +83,7 @@ void SDL::quotes()
                 space += 4;
             }
 
+        if((ifEvent(0, true)) == 1){return;}
             nwSpace += 0;
             space = 0;
             for(; i < 66; i++)
@@ -88,6 +93,7 @@ void SDL::quotes()
                 space += 4;
             }
 
+        if((ifEvent(0, true)) == 1){return;}
             nwSpace += 0;
             space = 0;
             for(; i < 74; i++)
@@ -97,6 +103,7 @@ void SDL::quotes()
                 space += 4;
             }
 
+        if((ifEvent(0, true)) == 1){return;}
             nwSpace += 7;
             space = 0;
             for(; i < 93; i++)
@@ -106,7 +113,8 @@ void SDL::quotes()
                 space += 4;
             }
         }
-
+        
+        if((ifEvent(0, true)) == 1){return;}
         if(count >= 3)
         {
             nwSpace += 7;
@@ -118,6 +126,9 @@ void SDL::quotes()
                 space += 4;
             }
         }
+
+        
+        if((ifEvent(0, true)) == 1){return;}
         if(count >= 4)
         {
             nwSpace += 8;
@@ -131,6 +142,7 @@ void SDL::quotes()
 
         }
 
+        if((ifEvent(0, true)) == 1){return;}
 
             count++;
             SDL_RenderPresent(renderer);
