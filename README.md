@@ -1,6 +1,6 @@
-<img width="230" height="230" alt="IMG_0404" src="https://github.com/user-attachments/assets/e37e1d69-6eaa-48a0-b6b6-839aacc705e0" />
-<img width="230" height="230" alt="image" src="https://github.com/user-attachments/assets/93ba494e-f518-4f64-8ebb-b75d0ed34fa6" />
-<img width="230" height="230" alt="Screenshot 2026-10-24 191102" src="https://github.com/user-attachments/assets/b1ee5762-47d9-42f9-b90c-727c01c57fb4" />
+<img width="230" height="210" alt="IMG_0404" src="https://github.com/user-attachments/assets/e37e1d69-6eaa-48a0-b6b6-839aacc705e0" />
+<img width="230" height="210" alt="image" src="https://github.com/user-attachments/assets/93ba494e-f518-4f64-8ebb-b75d0ed34fa6" />
+<img width="230" height="210" alt="Screenshot 2026-10-24 191102" src="https://github.com/user-attachments/assets/b1ee5762-47d9-42f9-b90c-727c01c57fb4" />
 
 # Necro-Entropy
 
