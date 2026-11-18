@@ -42,36 +42,57 @@ void SDL::spawnGlidersFromEdges()
 
 void SDL::spawnSpaceshipsFromEdges()
 {
-    constexpr std::array<std::array<int, 2>, 9> movingRight{{
-        {1, 0}, {2, 0}, {3, 0}, {4, 0}, {0, 1},
-        {4, 1}, {4, 2}, {0, 3}, {3, 3}
-    }};
-    constexpr std::array<std::array<int, 2>, 9> movingLeft{{
-        {0, 0}, {1, 0}, {2, 0}, {3, 0}, {0, 1},
-        {4, 1}, {0, 2}, {1, 3}, {4, 3}
-    }};
-    constexpr std::array<std::array<int, 2>, 9> movingDown{{
-        {1, 0}, {3, 0}, {0, 1}, {0, 2}, {0, 3},
-        {3, 3}, {0, 4}, {1, 4}, {2, 4}
-    }};
-    constexpr std::array<std::array<int, 2>, 9> movingUp{{
-        {1, 0}, {2, 0}, {3, 0}, {0, 1}, {3, 1},
-        {3, 2}, {3, 3}, {0, 4}, {2, 4}
-    }};
+    constexpr int leftX{1};
+    constexpr int leftY{middleY + 2};
+    constexpr int rightX{screenX - 5};
+    constexpr int rightY{middleY - 1};
+    constexpr int topX{middleX - 2};
+    constexpr int topY{1};
+    constexpr int bottomX{middleX + 1};
+    constexpr int bottomY{screenY - 5};
 
-    const auto placeSpaceship = [this](
-        int x,
-        int y,
-        const std::array<std::array<int, 2>, 9>& cells
-    ) {
-        for (const auto& cell : cells)
-        {
-            setGridCellState(x + cell[0], y + cell[1], alive);
-        }
-    };
+    int a = 8;
+    // left spaceship (moving right)
+    setGridCellState(leftX + 1 - a , leftY, alive);
+    setGridCellState(leftX + 2 - a, leftY, alive);
+    setGridCellState(leftX + 3 - a, leftY, alive);
+    setGridCellState(leftX + 4 - a, leftY, alive);
+    setGridCellState(leftX - a, leftY + 1, alive);
+    setGridCellState(leftX + 4 - a, leftY + 1, alive);
+    setGridCellState(leftX + 4 - a, leftY + 2, alive);
+    setGridCellState(leftX - a, leftY + 3, alive);
+    setGridCellState(leftX + 3 - a, leftY + 3, alive);
 
-    placeSpaceship(1, middleY + 2, movingRight);
-    placeSpaceship(screenX - 5, middleY - 1, movingLeft);
-    placeSpaceship(middleX - 2, 1, movingDown);
-    placeSpaceship(middleX + 1, screenY - 5, movingUp);
+    // right spaceship (moving left)
+    setGridCellState(a+rightX, rightY, alive);
+    setGridCellState(a+rightX + 1, rightY, alive);
+    setGridCellState(a+rightX + 2, rightY, alive);
+    setGridCellState(a+rightX + 3, rightY, alive);
+    setGridCellState(a+rightX, rightY + 1, alive);
+    setGridCellState(a+rightX + 4, rightY + 1, alive);
+    setGridCellState(a+rightX, rightY + 2, alive);
+    setGridCellState(a+rightX + 1, rightY + 3, alive);
+    setGridCellState(a+rightX + 4, rightY + 3, alive);
+
+    // top spaceship (moving down)
+    setGridCellState(topX + 1, topY, alive);
+    setGridCellState(topX + 3, topY, alive);
+    setGridCellState(topX, topY + 1, alive);
+    setGridCellState(topX, topY + 2, alive);
+    setGridCellState(topX, topY + 3, alive);
+    setGridCellState(topX + 3, topY + 3, alive);
+    setGridCellState(topX, topY + 4, alive);
+    setGridCellState(topX + 1, topY + 4, alive);
+    setGridCellState(topX + 2, topY + 4, alive);
+
+    // bottom spaceship (moving up)
+    setGridCellState(bottomX + 1, bottomY, alive);
+    setGridCellState(bottomX + 2, bottomY, alive);
+    setGridCellState(bottomX + 3, bottomY, alive);
+    setGridCellState(bottomX, bottomY + 1, alive);
+    setGridCellState(bottomX + 3, bottomY + 1, alive);
+    setGridCellState(bottomX + 3, bottomY + 2, alive);
+    setGridCellState(bottomX + 3, bottomY + 3, alive);
+    setGridCellState(bottomX, bottomY + 4, alive);
+    setGridCellState(bottomX + 2, bottomY + 4, alive);
 }

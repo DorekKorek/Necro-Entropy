@@ -70,6 +70,43 @@ void SDL::PlayerLogic()
     grid[player.posX][player.posY] = Type::player;
    SDL_SetRenderDrawColor(renderer, 55, 255, 90, 255);
    SDL_RenderDrawPoint(renderer, player.posX - offsetX, player.posY - offsetY);
+
+    switch(player.abbilty)
+    {
+        case(player.none):
+        {
+           return; 
+        }
+        case(player.thunder):
+        {
+            SDL_SetRenderDrawColor(renderer, 55, 25, 90, 255);
+            for(int a=0; a<fullScreenY; a++)
+            {
+                 SDL_RenderDrawPoint(renderer, player.posX-offsetX-1, a);
+                 SDL_RenderDrawPoint(renderer, player.posX-offsetX+1, a);
+                 SDL_RenderDrawPoint(renderer, player.posX-offsetX+2, a);
+                 SDL_RenderDrawPoint(renderer, player.posX-offsetX-2, a);
+                 grid[player.posX-1][a] = 0;
+                 grid[player.posX+1][a] = 0;
+                 grid[player.posX-2][a] = 0;
+                 grid[player.posX+2][a] = 0;
+            }
+            for(int a=0; a<fullScreenX; a++)
+            {
+                 SDL_RenderDrawPoint(renderer, a, player.posY-offsetY+1);
+                 SDL_RenderDrawPoint(renderer, a, player.posY-offsetY-1);
+                 SDL_RenderDrawPoint(renderer, a, player.posY-offsetY+2);
+                 SDL_RenderDrawPoint(renderer, a, player.posY-offsetY-2);
+                 grid[a][player.posY-1] = 0;
+                 grid[a][player.posY+1] = 0;
+                 grid[a][player.posY-2] = 0;
+                 grid[a][player.posY+2] = 0;
+            }
+
+            player.abbilty= player.none;
+            break;
+        }
+    }
 }
 
 //dellets offset, meaning it just draws with Fullscreen cordiantes               

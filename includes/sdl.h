@@ -8,6 +8,14 @@
         public:
         int posX;
         int posY;
+
+        int abbilty;
+
+        enum whatAbbility
+        {
+            none,
+            thunder
+        };
         
     };
     

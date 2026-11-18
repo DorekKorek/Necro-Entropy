@@ -21,11 +21,11 @@ int main()
             SDL.spawnSpaceshipsFromEdges();
         }
         
-        
         if(SDL.frames % 2 == 0)
         {
             SDL.updateCellState();
         }
+
         SDL.ifEvent();
         SDL.PlayerLogic();
         SDL.displayGrid();
