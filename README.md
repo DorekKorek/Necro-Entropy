@@ -4,6 +4,11 @@
 
 # Necro-Entropy
 
+[![Latest Release](https://img.shields.io/github/v/release/DorekKorek/Necro-Entropy?style=for-the-badge&label=Latest%20Release&color=2ea44f)](https://github.com/DorekKorek/Necro-Entropy/releases/latest)
+[![Download Windows Build](https://img.shields.io/badge/Download-Windows%20Build%20(.zip)-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/DorekKorek/Necro-Entropy/raw/v0.2.0/build/Necro-Entropy-Windows.zip)
+
+> 🎮 **Play Now (Windows):** [**View Latest Release (`v0.2.0`)**](https://github.com/DorekKorek/Necro-Entropy/releases/latest) | [**Direct Download (`Necro-Entropy-Windows.zip`)**](https://github.com/DorekKorek/Necro-Entropy/raw/v0.2.0/build/Necro-Entropy-Windows.zip) *(includes `necroentropy.exe`, `sounds/`, and all required SDL2 `.dll` files)*
+
 ## About the Project
 **Necro-Entropy** is a simple, experimental 2D game/simulation written in **C++** using **SDL2** and **SDL2_mixer**. 
 
