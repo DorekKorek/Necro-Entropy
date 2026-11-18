@@ -48,7 +48,7 @@
         
     }
 
-    void SDL::ifEvent(int frames)
+    void SDL::ifEvent()
     {
         SDL_Event event;
 
@@ -58,12 +58,30 @@
             {
                 Quit();
             }
+            if(event.type == SDL_KEYDOWN 
+                && event.key.keysym.scancode == SDL_SCANCODE_SPACE
+                && event.key.repeat == 0)
+            {
+                if(SDL::delay < SDL::frames)
+                {
+                    Mix_PlayChannel(-1, sound, 0);
+                    SDL::delay = SDL::frames + 20;
+                    for(int i = 2; i< SDL::fullScreenY-2; i++)
+                    {
+                        SDL::grid[SDL::player.posX-1][i] = dead;
+                        SDL::grid[SDL::player.posX+1][i] = dead;
+                        SDL::grid[SDL::player.posX+2][i] = dead;
+                        SDL::grid[SDL::player.posX-2][i] = dead;
+                        SDL_SetRenderDrawColor(renderer, 255,22,255,255);
+                        SDL_RenderDrawPoint(renderer, SDL::player.posX+1, i);
+                        SDL_RenderDrawPoint(renderer, SDL::player.posX-1, i);
+                    }
+                }
+            }
         }
 
-       // if (event.type == SDL_KEYDOWN)
             {  
-            //    if (event.key.repeat == 0 && SDL::player.posX)
-                if(frames % 2 == 0)
+                if(SDL::frames % 2 == 0)
                 {
                         const Uint8* state = SDL_GetKeyboardState(nullptr);
 

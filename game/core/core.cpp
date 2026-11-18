@@ -7,6 +7,7 @@ void SDL::displayGrid()
     {
         for(int gy{}; gy < fullScreenY; gy++)
         {
+            
             if(grid[gx][gy] == alive)
             {
                 drawToScreen(gx, gy, alive);
@@ -15,21 +16,10 @@ void SDL::displayGrid()
             {
                 drawToScreen(gx, gy, monster);
             }
+            
+             //   drawToScreen(gx, gy, grid[gx][gy]);
         }
     }
-}
-
-void SDL::collisonCheck()
-{
-    for(int gx{}; gx < fullScreenX ; gx++)
-    {
-        for(int gy{}; gy < fullScreenY ; gy++)
-        {
-            
-        }
-    }
-            
-    //the next grid is put on the current one
 }
 
 void SDL::updateCellState()
@@ -44,15 +34,11 @@ void SDL::updateCellState()
             if(conwayLogic(gx, gy))
             {
                 // idea: make it so that conwayLogic will return a intiger so that i know the type
-                if(grid[gx][gy] == Type::player)
-                {
-                    renderDeath();
-                }   
                 if(grid[gx][gy] == dead)
                 {
                     nextGrid[gx][gy] = alive;   
                 }
-                if(grid[gx][gy] == alive)
+                if(grid[gx][gy] == alive || grid[gx][gy] == Type::player)
                 {
                     nextGrid[gx][gy] = alive;   
                 }
@@ -86,9 +72,10 @@ void SDL::PlayerLogic()
    SDL_RenderDrawPoint(renderer, player.posX - offsetX, player.posY - offsetY);
 }
 
-//dellets offset, meaning it just draws with screen cordiantes               
+//dellets offset, meaning it just draws with Fullscreen cordiantes               
 void SDL::drawToScreen(int gx, int gy, int type)
 {
+    
     // make a x and y WITHOUT offset
     int sx = gx - offsetX;
     int sy = gy - offsetY;

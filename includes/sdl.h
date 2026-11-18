@@ -23,6 +23,10 @@
     class SDL
     {
         public:
+
+        int frames{0};
+        int delay={0};
+
         static constexpr int screenX{74};
         static constexpr int screenY{64};
 
@@ -42,17 +46,18 @@
         //SDL.cpp
         SDL();
         void Quit();
-        void ifEvent(int frames = 0);
+        void ifEvent();
         void renderBackground();
         
         Player player{};
         
         void setGridCellState(int x, int y, int type = alive);
+        void spawnGlidersFromEdges();
+        void spawnSpaceshipsFromEdges();
         void drawToScreen(int x, int y, int type);
         void PlayerLogic();
         int countNeighbors(int x, int y);
         int conwayLogic(int x, int y);
-        void collisonCheck();
         
         void updateCellState();
         void displayGrid();
@@ -61,11 +66,17 @@
         void deathLetter(char letter);
         void drawLetter(char letter, int x, int y);   
         void drawNumber(int number, int x, int y);
+
+        //***also drawing only pixels but with rules ***//
+
+            //renders death text and exits game
+            void renderDeath();
+            //renders quotes, text 
+            void quotes();
+            // tirmer on the upper  screen, frames is 
+            void timer();
         
-        void renderDeath();
-        void quotes();
-        void timer(int frames);
-        
+        //drawing naked pixels on the screen
         void renderLine(int x, int y, int length, char cordinates);
         void renderLineX(int x, int y, int length);
         void renderLineY(int x, int y, int length);

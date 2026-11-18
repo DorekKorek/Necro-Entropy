@@ -1,6 +1,6 @@
 #include "sdl.h"
 
-void SDL::timer(int frames)
+void SDL::timer()
 {
     static int time{60};
     if(time <= 0){return;}
