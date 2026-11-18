@@ -68,7 +68,7 @@ void SDL::PlayerLogic()
         renderDeath();
     }
     grid[player.posX][player.posY] = Type::player;
-   SDL_SetRenderDrawColor(renderer, 55, 255, 90, 255);
+   SDL_SetRenderDrawColor(renderer, 185, 255, 90, 255);
    SDL_RenderDrawPoint(renderer, player.posX - offsetX, player.posY - offsetY);
 
     switch(player.abbilty)
@@ -79,7 +79,7 @@ void SDL::PlayerLogic()
         }
         case(player.thunder):
         {
-            SDL_SetRenderDrawColor(renderer, 55, 25, 90, 255);
+            SDL_SetRenderDrawColor(renderer, 255, 165, 0, 255);
             for(int a=0; a<fullScreenY; a++)
             {
                  SDL_RenderDrawPoint(renderer, player.posX-offsetX-1, a);

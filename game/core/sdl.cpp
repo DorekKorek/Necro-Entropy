@@ -66,7 +66,7 @@
                 {
                     Mix_PlayChannel(-1, sound, 0);
                     player.abbilty = player.thunder;                    
-                    SDL::delay = SDL::frames + 200;
+                    SDL::delay = SDL::frames + 1000;
                 }
             }
         }

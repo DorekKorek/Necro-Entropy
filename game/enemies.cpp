@@ -2,14 +2,16 @@
 
 void SDL::spawnGlidersFromEdges()
 {
-    constexpr int topLeftX{2};
-    constexpr int topLeftY{2};
-    constexpr int topRightX{screenX - 4};
-    constexpr int topRightY{3};
-    constexpr int bottomLeftX{3};
-    constexpr int bottomLeftY{screenY - 4};
-    constexpr int bottomRightX{screenX - 5};
-    constexpr int bottomRightY{screenY - 6};
+    constexpr int offset{8}; // Increase this to spawn further out
+
+    constexpr int topLeftX{2 - offset};
+    constexpr int topLeftY{2 - offset};
+    constexpr int topRightX{screenX - 4 + offset};
+    constexpr int topRightY{3 - offset};
+    constexpr int bottomLeftX{3 - offset};
+    constexpr int bottomLeftY{screenY - 4 + offset};
+    constexpr int bottomRightX{screenX - 5 + offset};
+    constexpr int bottomRightY{screenY - 6 + offset};
 
     // top-left glider
     setGridCellState(topLeftX + 1, topLeftY, alive);
@@ -42,37 +44,38 @@ void SDL::spawnGlidersFromEdges()
 
 void SDL::spawnSpaceshipsFromEdges()
 {
-    constexpr int leftX{1};
+    constexpr int offset{12}; // Increase this to spawn further out
+
+    constexpr int leftX{1 - offset};
     constexpr int leftY{middleY + 2};
-    constexpr int rightX{screenX - 5};
+    constexpr int rightX{screenX - 5 + offset};
     constexpr int rightY{middleY - 1};
     constexpr int topX{middleX - 2};
-    constexpr int topY{1};
+    constexpr int topY{1 - offset};
     constexpr int bottomX{middleX + 1};
-    constexpr int bottomY{screenY - 5};
+    constexpr int bottomY{screenY - 5 + offset};
 
-    int a = 8;
     // left spaceship (moving right)
-    setGridCellState(leftX + 1 - a , leftY, alive);
-    setGridCellState(leftX + 2 - a, leftY, alive);
-    setGridCellState(leftX + 3 - a, leftY, alive);
-    setGridCellState(leftX + 4 - a, leftY, alive);
-    setGridCellState(leftX - a, leftY + 1, alive);
-    setGridCellState(leftX + 4 - a, leftY + 1, alive);
-    setGridCellState(leftX + 4 - a, leftY + 2, alive);
-    setGridCellState(leftX - a, leftY + 3, alive);
-    setGridCellState(leftX + 3 - a, leftY + 3, alive);
+    setGridCellState(leftX + 1, leftY, alive);
+    setGridCellState(leftX + 2, leftY, alive);
+    setGridCellState(leftX + 3, leftY, alive);
+    setGridCellState(leftX + 4, leftY, alive);
+    setGridCellState(leftX, leftY + 1, alive);
+    setGridCellState(leftX + 4, leftY + 1, alive);
+    setGridCellState(leftX + 4, leftY + 2, alive);
+    setGridCellState(leftX, leftY + 3, alive);
+    setGridCellState(leftX + 3, leftY + 3, alive);
 
     // right spaceship (moving left)
-    setGridCellState(a+rightX, rightY, alive);
-    setGridCellState(a+rightX + 1, rightY, alive);
-    setGridCellState(a+rightX + 2, rightY, alive);
-    setGridCellState(a+rightX + 3, rightY, alive);
-    setGridCellState(a+rightX, rightY + 1, alive);
-    setGridCellState(a+rightX + 4, rightY + 1, alive);
-    setGridCellState(a+rightX, rightY + 2, alive);
-    setGridCellState(a+rightX + 1, rightY + 3, alive);
-    setGridCellState(a+rightX + 4, rightY + 3, alive);
+    setGridCellState(rightX, rightY, alive);
+    setGridCellState(rightX + 1, rightY, alive);
+    setGridCellState(rightX + 2, rightY, alive);
+    setGridCellState(rightX + 3, rightY, alive);
+    setGridCellState(rightX, rightY + 1, alive);
+    setGridCellState(rightX + 4, rightY + 1, alive);
+    setGridCellState(rightX, rightY + 2, alive);
+    setGridCellState(rightX + 1, rightY + 3, alive);
+    setGridCellState(rightX + 4, rightY + 3, alive);
 
     // top spaceship (moving down)
     setGridCellState(topX + 1, topY, alive);
