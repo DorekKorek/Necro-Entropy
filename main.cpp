@@ -6,8 +6,7 @@ int main()
     //SDL INITALIZATION
     
     SDL SDL{}; 
-
-    SDL.quotes();
+   // SDL.quotes();
 
     SDL.spawnGlidersFromEdges();
     SDL.spawnSpaceshipsFromEdges();
@@ -44,12 +43,13 @@ int main()
         }
 
         SDL.displayGrid();
-        
         SDL.timer();
-
         SDL_RenderPresent(SDL.renderer);
         SDL_Delay(16);
         SDL.frames++;
+
+        if(SDL.remainingTime < 0) SDL.renderEndScreen(true);
+
     }
     return 0;
 }

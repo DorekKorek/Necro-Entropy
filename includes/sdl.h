@@ -32,6 +32,7 @@
     {
         public:
 
+        int remainingTime{3};
         int frames{0};
         int delay={0};
 
@@ -71,14 +72,14 @@
         void displayGrid();
 
         
-        void deathLetter(char letter);
+        void bigLetters(char letter);
         void drawLetter(char letter, int x, int y);   
         void drawNumber(int number, int x, int y);
 
         //***also drawing only pixels but with rules ***//
 
             //renders death text and exits game
-            void renderDeath();
+            void renderEndScreen(bool didPlayerWin);
             //renders quotes, text 
             void quotes();
             // tirmer on the upper  screen, frames is 

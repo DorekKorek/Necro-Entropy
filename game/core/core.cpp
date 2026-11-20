@@ -65,7 +65,7 @@ void SDL::PlayerLogic()
 {
     if(grid[player.posX][player.posY] == alive)
     {
-        renderDeath();
+        renderEndScreen(false);
     }
     grid[player.posX][player.posY] = Type::player;
    SDL_SetRenderDrawColor(renderer, 185, 255, 90, 255);
